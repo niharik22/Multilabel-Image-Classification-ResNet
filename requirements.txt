@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+tqdm
+PIL
+torch==2.5.1+cu124
+torchvision==0.18.1+cu124
+torchaudio==2.5.1+cu124
+-f https://download.pytorch.org/whl/cu124
