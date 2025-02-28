@@ -39,7 +39,7 @@ A **series of controlled trials** were conducted to optimize the model:
 | Trial | Optimizer | Learning Rate | Weight Decay | Dropout | Scheduler | Batch Size | Best Validation Loss |
 |--------|------------|------|--------------|---------|------------|------------|--------------|
 | **Trial 1** | Adam | 0.0005 | 1e-4 | 0.5 | StepLR | Default | 0.0516 |
-| **Trial 2** | Adam | 0.0001 | 1e-5 | 0.4 | ReduceLROnPlateau | Default | 0.0478 |
+| **Trial 2** | Adam | 0.0001 | 1e-5 | 0.4 | ReduceLROnPlateau | Default | 0.0330 |
 | **Trial 3** | Adam | 0.0001 | 7e-4 | 0.5 | CosineAnnealingLR (T_max=25) | Default | 0.0419 |
 | **Trial 4** | AdamW | 0.0001 | 5e-4 | 0.45 | CosineAnnealingLR (T_max=35) | 64 | 0.0481 |
 | **Trial 5** | AdamW | 0.0001 | 6e-4 | 0.48 | CosineAnnealingLR (T_max=40) | 80 | 0.0440 |
@@ -65,12 +65,14 @@ The best model was selected based on **validation loss and overall stability**. 
 | **Class 8** | 99.16% | 95.33% | 97.21% |
 | **Class 9** | 98.44% | 92.20% | 95.21% |
 
-## **Visualizations**
-### **Training & Validation Loss**
-![Training vs Validation Loss](./images/train_vs_val_loss.png)
 
-### **Precision & Recall per Class**
-![Precision and Recall](./images/precision_recall.png)
+## **Visualizations**
+### **Training Losses across Trails**
+![Training](./images/train_loss.png)
+
+### **Validation Losses across Trails**
+![Validation Loss](./images/train_loss.png)
+
 
 ### **Overall Confusion Matrix**
 ![Overall Confusion Matrix](./images/overall_confusion_matrix.png)
@@ -90,38 +92,6 @@ The best model was selected based on **validation loss and overall stability**. 
 - **Data augmentation** for underrepresented classes.
 - **Self-supervised learning** for feature extraction.
 - **Ensemble learning** with multiple models to boost performance.
-
-## **How to Use This Model**
-### **1. Install Dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-### **2. Load Trained Weights**
-```bash
-import torch
-from model import ResNetMultiLabelClassifier  # Import your model class
-
-model = ResNetMultiLabelClassifier()  # Initialize model
-model.load_state_dict(torch.load("best_model_weights.pth"))  # Load weights
-model.eval()  # Set to evaluation mode
-```
-
-### **3. Run Inference**
-```bash
-import torchvision.transforms as transforms
-from PIL import Image
-
-image_path = "sample_image.jpg"
-transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
-image = transform(Image.open(image_path)).unsqueeze(0)
-
-with torch.no_grad():
-    output = model(image)
-    predictions = torch.sigmoid(output) > 0.5  # Convert to binary labels
-
-print("Predicted Labels:", predictions.numpy())
-```
 
 ## **Conclusion**
 
