@@ -91,38 +91,6 @@ The best model was selected based on **validation loss and overall stability**. 
 - **Self-supervised learning** for feature extraction.
 - **Ensemble learning** with multiple models to boost performance.
 
-## **How to Use This Model**
-### **1. Install Dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-### **2. Load Trained Weights**
-```bash
-import torch
-from model import ResNetMultiLabelClassifier  # Import your model class
-
-model = ResNetMultiLabelClassifier()  # Initialize model
-model.load_state_dict(torch.load("best_model_weights.pth"))  # Load weights
-model.eval()  # Set to evaluation mode
-```
-
-### **3. Run Inference**
-```bash
-import torchvision.transforms as transforms
-from PIL import Image
-
-image_path = "sample_image.jpg"
-transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
-image = transform(Image.open(image_path)).unsqueeze(0)
-
-with torch.no_grad():
-    output = model(image)
-    predictions = torch.sigmoid(output) > 0.5  # Convert to binary labels
-
-print("Predicted Labels:", predictions.numpy())
-```
-
 ## **Conclusion**
 
  - **This project demonstrates a rigorous approach to multi-label classification using deep learning, ResNet, and advanced optimization techniques. The final model achieves high performance and generalization, making it suitable for real-world applications.**
