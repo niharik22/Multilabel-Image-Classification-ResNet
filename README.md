@@ -39,7 +39,7 @@ A **series of controlled trials** were conducted to optimize the model:
 | Trial | Optimizer | Learning Rate | Weight Decay | Dropout | Scheduler | Batch Size | Best Validation Loss |
 |--------|------------|------|--------------|---------|------------|------------|--------------|
 | **Trial 1** | Adam | 0.0005 | 1e-4 | 0.5 | StepLR | Default | 0.0516 |
-| **Trial 2** | Adam | 0.0001 | 1e-5 | 0.4 | ReduceLROnPlateau | Default | 0.0478 |
+| **Trial 2** | Adam | 0.0001 | 1e-5 | 0.4 | ReduceLROnPlateau | Default | 0.0330 |
 | **Trial 3** | Adam | 0.0001 | 7e-4 | 0.5 | CosineAnnealingLR (T_max=25) | Default | 0.0419 |
 | **Trial 4** | AdamW | 0.0001 | 5e-4 | 0.45 | CosineAnnealingLR (T_max=35) | 64 | 0.0481 |
 | **Trial 5** | AdamW | 0.0001 | 6e-4 | 0.48 | CosineAnnealingLR (T_max=40) | 80 | 0.0440 |
