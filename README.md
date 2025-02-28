@@ -65,12 +65,14 @@ The best model was selected based on **validation loss and overall stability**. 
 | **Class 8** | 99.16% | 95.33% | 97.21% |
 | **Class 9** | 98.44% | 92.20% | 95.21% |
 
-## **Visualizations**
-### **Training & Validation Loss**
-![Training vs Validation Loss](./images/train_vs_val_loss.png)
 
-### **Precision & Recall per Class**
-![Precision and Recall](./images/precision_recall.png)
+## **Visualizations**
+### **Training Losses across Trails**
+![Training](./images/train_loss.png)
+
+### **Validation Losses across Trails**
+![Validation Loss](./images/train_loss.png)
+
 
 ### **Overall Confusion Matrix**
 ![Overall Confusion Matrix](./images/overall_confusion_matrix.png)
