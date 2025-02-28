@@ -1,8 +1,13 @@
 pandas
 numpy
 matplotlib
+seaborn
+scipy
 tqdm
-PIL
+Pillow
+opencv-python
+iterative-stratification
+scikit-learn
 torch==2.5.1+cu124
 torchvision==0.18.1+cu124
 torchaudio==2.5.1+cu124
