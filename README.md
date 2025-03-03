@@ -73,7 +73,7 @@ The best model was selected based on **validation loss and overall stability**. 
 ![Training](./images/train_loss.png)
 
 ### **Validation Losses across Trails**
-![Validation Loss](./images/train_loss.png)
+![Validation Loss](./images/val_loss.png)
 
 
 ### **Overall Confusion Matrix**
